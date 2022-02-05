@@ -1,4 +1,8 @@
-class Site {}
+class Site {
+    constructor () {
+        console.log("pushTest");
+    }
+}
 
 class Board {}
 
