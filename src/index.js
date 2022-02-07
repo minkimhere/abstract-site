@@ -4,17 +4,31 @@ class Site {
     }
 
     addBoard(board) {
-        const boardIndex = this.boards.findIndex((i) => i.name === board.name);
-        if (boardIndex === -1) {
+        // Case1: 엘리먼트로 검사해서 추가하기
+        if (!this.boards.find((element) => element.name === board.name)) {
             board.addBoard = true;
             this.boards.push(board);
         } else {
             throw new error('에러입니다.');
         }
+
+        // Case2: 인덱스로 검사해서 추가하기
+        // const boardIndex = this.boards.findIndex((i) => i.name === board.name);
+        // if (boardIndex === -1) {
+        //     board.addBoard = true;
+        //     this.boards.push(board);
+        // } else {
+        //     throw new error('에러입니다.');
+        // }
     }
 
     findBoardByName(board) {
+        // Case1: 바로 엘리먼트 찾는 방법
         return this.boards.find((element) => element.name === board);
+
+        // Case2: 인덱스 찾고 배열[인덱스]해서 엘리먼트 찾는 방법
+        // const boardIndex = this.boards.findIndex((i) => i.name === board);
+        // return this.boards[boardIndex];
     }
 }
 
