@@ -9,8 +9,8 @@ describe('Site 요구사항 테스트', () => {
     });
 
     test('Site에는 Board를 추가하고 추가된 Board를 조회할 수 있다.', () => {
-        const mySite = new Site();
-        const noticeBoard = new Board('공지사항');
+        const mySite = new Site();// Site 인스턴스 생성
+        const noticeBoard = new Board('공지사항'); // Board 인스턴스 생성
 
         mySite.addBoard(noticeBoard);
 
@@ -103,7 +103,7 @@ describe('Board 요구사항 테스트', () => {
             author: '강승현',
         });
         noticeBoard.publish(article);
-
+       
         // 규칙은 ${board.name}-${랜덤 값} 를 따른다.
         expect(article.id.startsWith('공지사항-')).toBe(true);
     });
@@ -335,6 +335,9 @@ describe('Comment 요구사항 테스트', () => {
                 author: '강승현',
             });
             article.reply(comment);
+
+            console.log(article.comments);
+
         }).not.toThrow();
 
         expect(() => {
